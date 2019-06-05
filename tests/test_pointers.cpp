@@ -1,3 +1,4 @@
+/*
 #include <cassert>
 #include <iostream>
 #include <vector>
@@ -47,3 +48,4 @@ int main() {
     delete_all_things(things, NUM_THINGS);
     return 0;
 }
+*/
