@@ -9,14 +9,14 @@ const bool DEBUG = true;
 
 int main() {
     cout << "Input a complex number:\n";
-    Complex c1;
+    Complex c1{12, 13};
     // get a complex from stdin:
-    cin >> c1;
-    if (!cin)
-    {
-        cerr << "Bad input format\n";
-        exit(1);
-    }
+    //cin >> c1;
+    //if (!cin)
+    //{
+    //    cerr << "Bad input format\n";
+    //    exit(1);
+    //}
     if(DEBUG)
     {
         cout << "c1 = " << c1 << endl;
