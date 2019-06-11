@@ -6,18 +6,12 @@ class Complex {
     friend std::ostream& operator<< (std::ostream& os, const Complex& c);
     friend std::istream& operator>> (std::istream& is, Complex& c);
 
-    /*
-     * The equality operator should be a friend since it is binary
-     * and symmetrical.
-     * */
-    friend bool operator== (const Complex& c1, const Complex& c2);
-
- public:
+public:
     /*
      * Our sole constructor takes defaults of 0 for both `real` and
      * `imag`, so can be called with no arguments.
      * */
-    Complex(double real=0.0, double imag=0.0);
+    Complex(double real = 0.0, double imag = 0.0);
 
     /*
      * The `bool` operator tests to see if either
@@ -25,12 +19,12 @@ class Complex {
      * if so.
      * */
     explicit operator bool() const;
-    
+
     /*
      * Get the real component:
      * */
     double get_real() const;
-    
+
     /*
      * Get the imaginary component:
      * */
@@ -72,19 +66,30 @@ class Complex {
      * */
     Complex operator--(int dummy);
 
-    /*
-     * `+` adds real to real, and complex to complex.
-     * */
-    Complex operator+(const Complex& c);
+
+    Complex operator-=(const Complex& c);
 
     /*
-     * `-` subtracts real from real, and complex from complex.
+     * Let's do multiplication by a scalar:
      * */
-    Complex operator-(const Complex& c);
+    Complex operator*(const int i);
 
- private:
+private:
     double real;
     double imag;
 };
+
+
+bool operator== (const Complex& c1, const Complex& c2);
+bool operator!= (const Complex& c1, const Complex& c2);
+/*
+ * `+` adds real to real, and complex to complex.
+ * */
+Complex operator+(const Complex& c1, const Complex& c2);
+
+/*
+ * `-` subtracts real from real, and complex from complex.
+ * */
+Complex operator-(const Complex& c1, const Complex& c2);
 
 #endif
