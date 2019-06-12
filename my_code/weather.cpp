@@ -5,6 +5,61 @@
 
 using namespace std;
 
+const double C_TO_F = 9.0 / 5.0;
+
+/*
+ * Image class:
+*/
+
+Image::Image(int w, int h, string flnm) : width(w), height(h){
+	filename = flnm;
+	image_buf = new char[image_sz()];
+}
+
+	// copy constructor
+Image::Image(const Image& img2) {
+	copy_fields(img2);
+}
+
+// destructor
+Image::~Image() {
+	if (image_buf != nullptr) {
+		delete image_buf;
+	}
+}
+
+// assignment operator:
+Image& Image::operator=(const Image& img2) {
+	if (&img2 != this) {
+		if (image_buf != nullptr) {
+			delete image_buf;
+		}
+		copy_fields(img2);
+	}
+	return *this;
+}
+
+int Image::image_sz() {
+	return width * height;
+}
+
+void Image::copy_fields(const Image& img2) {
+	width = img2.width;
+	height = img2.height;
+	image_buf = new char[image_sz()];
+	for (int i = 0; i < image_sz(); i++) {
+		image_buf[i] = img2.image_buf[i];
+	}
+}
+
+/*
+	* Setting `display() = 0` here makes this an abstract
+	* class that can't be implemented.
+	* */
+string Image::display(string s) {
+	return "Displaying image " + s;
+}
+
 /*
  * WReading class:
 */
@@ -16,9 +71,11 @@ ostream& operator<<(ostream& os, const WReading& wr) {
 }
 
 WReading::WReading(Date dt, double temp, double hum, double ws)
-	: date(dt), temperature(temp), humidity(hum), windspeed(ws) {}
+	: date(dt), temperature(temp), humidity(hum), windspeed(ws) {} // can have this just in header
 
-
+double WReading::get_tempF() const{
+	return (temperature * C_TO_F + 32.0);
+}
 
 
 ostream& operator<<(ostream& os, const GPS& gps) {
