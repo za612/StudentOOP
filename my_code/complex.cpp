@@ -1,7 +1,7 @@
 #include <iostream>
 #include <istream>
 #include <iomanip>
-
+#include <cmath> // travis wants this
 #include "complex.h"
 
 using namespace std;
@@ -9,8 +9,8 @@ using namespace std;
 Complex::Complex(double real, double imag) : real(real), imag(imag) {}
 
 bool operator==(const Complex& c1, const Complex& c2) {
-    //return ((abs(c1.get_real() - c2.get_real())<0.001) && (abs(c1.get_imag() == c2.get_imag())<0.001));
-    return (((c1.get_real() - c2.get_real())<0.001) && ((c1.get_imag() == c2.get_imag())<0.001));
+    return ((abs(c1.get_real() - c2.get_real())<0.001) && (abs(c1.get_imag() == c2.get_imag())<0.001));
+    //return (((c1.get_real() - c2.get_real())<0.001) && ((c1.get_imag() == c2.get_imag())<0.001));
 }
 
 bool operator!=(const Complex& c1, const Complex& c2) {
