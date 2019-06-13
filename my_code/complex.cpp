@@ -1,7 +1,7 @@
 #include <iostream>
 #include <istream>
 #include <iomanip>
-//#include <cmath> // travis wants this
+#include <cmath> // travis wants this
 #include "complex.h"
 
 using namespace std;
