@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <cmath> 
+#include <cmath> // needed for abs to work in travis
 #include "complex.h"
 
 using namespace std;
