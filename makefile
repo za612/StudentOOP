@@ -34,7 +34,7 @@ $(TEST_DIR)/test_llist: $(STUDENT_DIR)/llist.cpp $(TEST_DIR)/test_llist.cpp
 
 test_tvector: $(TEST_DIR)/test_tvector
 
-$(TEST_DIR)/test_tvector: $(STUDENT_DIR)/tvector.cpp $(TEST_DIR)/test_tvector.cpp
+$(TEST_DIR)/test_tvector: $(TEST_DIR)/test_tvector.cpp
 
 tests: test_hello test_basics test_pointers test_complex test_vector test_llist test_tvector #test_weather
 	tests/test_hello
